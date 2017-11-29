@@ -56,7 +56,8 @@ namespace PickC.Internal2.Controllers
         }
         public async Task<ActionResult> GetDriversList()
         {
-            var driverList = await new DriverService(AUTHTOKEN, p_mobileNo).DriversListAsync();
+            var status = "ALL";
+            var driverList = await new DriverService(AUTHTOKEN, p_mobileNo).GetDriverBySearch(status);
             var tripMonitor = await GetTripMonitorData();
 
             var driverMonitorVm = new DriverMonitorVm()
@@ -146,7 +147,7 @@ namespace PickC.Internal2.Controllers
         {
             return View();
         }
-        public async Task<JsonResult> GetDriverBySearch(bool? status = null)
+        public async Task<JsonResult> GetDriverBySearch(string status)
         {
             var driverlist = await new DriverService(AUTHTOKEN, p_mobileNo).GetDriverBySearch(status);
             return Json(driverlist, JsonRequestBehavior.AllowGet);

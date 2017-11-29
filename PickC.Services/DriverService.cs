@@ -19,18 +19,20 @@ namespace PickC.Services
         {
 
         }
-        public async Task<List<Driver>> DriversListAsync()
-        {
-            IRestClient client = new RestClient(ApiBaseUrl);
-            var request = p_request;
-            request.Method = Method.GET;
-            request.Resource = "master/driver/list";
+        //public async Task<List<DriverAttachmentListStatus>> DriversListAsync()
+        //{
+        //    IRestClient client = new RestClient(ApiBaseUrl);
+        //    var request = p_request;
+        //    request.Method = Method.GET;
 
-            return await Task.Run(() =>
-            {
-                return ServiceResponse<List<Driver>>(client.Execute<List<Driver>>(request));
-            });
-        }
+        //    request.Resource = "master/driver/list/driverbyname/{status}";
+        //    request.AddParameter("status", "", ParameterType.UrlSegment);
+
+        //    return await Task.Run(() =>
+        //    {
+        //        return ServiceResponse<List<DriverAttachmentListStatus>>(client.Execute<List<DriverAttachmentListStatus>>(request));
+        //    });
+        //}
         public async Task<List<DriverDetails>> DriverDetailListAsync()
         {
             IRestClient client = new RestClient(ApiBaseUrl);
@@ -100,25 +102,19 @@ namespace PickC.Services
         }
 
 
-        public async Task<List<Driver>> GetDriverBySearch(bool? status) {
+        public async Task<List<DriverAttachmentListStatus>> GetDriverBySearch(string status) {
 
             IRestClient client = new RestClient(ApiBaseUrl);
             var request = p_request;
             request.Method = Method.GET;
 
-            if (status.HasValue)
-            {
+           
                 request.Resource = "master/driver/list/driverbyname/{status}";
                 request.AddParameter("status", status, ParameterType.UrlSegment);
-            }
-            else
-            {
-                request.Resource = "master/driver/list/driverbyname/";
-            }
 
             return await Task.Run(() =>
             {
-                return ServiceResponse<List<Driver>>(client.Execute<List<Driver>>(request));
+                return ServiceResponse<List<DriverAttachmentListStatus>>(client.Execute<List<DriverAttachmentListStatus>>(request));
             });
         }
 

@@ -342,11 +342,11 @@
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_VehicleType_span_@i">@Model.OPerator.OperatorVehicleList[i].VehicleTypeDescription</span>
-                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleType)
+                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleTypeDescription)
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_VehicleCategory_span_@i">@Model.OPerator.OperatorVehicleList[i].VehicleCategoryDescription</span>
-                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleCategory)
+                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleCategoryDescription)
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_Model_span_@i">@Model.OPerator.OperatorVehicleList[i].Model</span>
@@ -902,13 +902,14 @@
                     }
                 }
                 function onChangeVehicleCategory(selectedCategory) {
-                    debugger
+                    debugger;
                     var category = selectedCategory.value;
                     $.ajax({
                         url: '@Url.Content("~/Operator/GetCategoryModel?categoryValue=")' + category,
                         method: 'get',
                         contentType: 'application/json',
                         success: function (data) {
+                            debugger;
                             $('#operatorVehicle_Model').removeAttr("disabled");
                             $("#operatorVehicle_Model").html(""); // clear before appending new list
                             $("<option value='-1'>Select item</option>").appendTo("#operatorVehicle_Model");
@@ -923,12 +924,14 @@
                     });
                 }
                 function ModelChanged(el) {
+                    debugger;
                     var tonnage = el.value;
                     $.ajax({
                         url: '@Url.Content("~/Operator/GetTonnage?tonnage=")' + tonnage,
                         method: 'get',
                         contentType: 'application/json',
                         success: function (data) {
+                            debugger;
                             $.each(data, function (i, item) {
                                 $('#operatorVehicle_Tonnage').val(item.Text);
                             });

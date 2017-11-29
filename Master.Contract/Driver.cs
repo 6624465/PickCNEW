@@ -91,6 +91,19 @@ namespace Master.Contract
         public string OperatorID { get; set; }
         public List<BankDetails> BankDetails { get; set; }
     }
+    public class DriverAttachmentListStatus
+    {
+        public string DriverID { get; set; }
+
+        public DateTime LoginDate { get; set; }
+
+        //public DateTime LogoutDate {get; set;}
+        public string DriverName { get; set; }
+        
+        public string MobileNo { get; set; }
+        public string VehicleNo { get; set; }
+        public bool Status { get; set; }
+    }
   
 }
 

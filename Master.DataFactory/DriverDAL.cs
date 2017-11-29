@@ -300,11 +300,11 @@ namespace Master.DataFactory
         {
             return db.ExecuteSprocAccessor(DBRoutine.DRIVERWISEDAILYAMOUNTPAYMENTTYPELIST, MapBuilder<DriverWiseDailyAmountPaymentTypeList>.MapAllProperties().Build(), DriverID, FromDate, ToDate, PaymentType).ToList();
         }
-        public List<Driver> GetDriverBySearch(bool? status)
+        public List<DriverAttachmentListStatus> GetDriverBySearch(string status)
         {
 
-            List<Driver> list = db.ExecuteSprocAccessor(DBRoutine.GETDRIVERBYSTATUS,
-                                                       MapBuilder<Driver>.BuildAllProperties(), status).ToList();
+            List<DriverAttachmentListStatus> list = db.ExecuteSprocAccessor(DBRoutine.DRIVERLISTBYLOGINSTATUS,
+                                                       MapBuilder<DriverAttachmentListStatus>.BuildAllProperties(), status).ToList();
             return list;
         }
 

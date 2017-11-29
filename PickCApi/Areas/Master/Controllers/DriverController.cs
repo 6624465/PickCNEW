@@ -107,13 +107,13 @@ namespace PickCApi.Areas.Master.Controllers
         }
 
         [HttpGet]
-        [Route("list/driverbyname/{status?}")]
+        [Route("list/driverbyname/{status}")]
 
-        public IHttpActionResult GetDriverBySearch(bool? status=null)
+        public IHttpActionResult GetDriverBySearch(string status)
         {
             try
             {
-                var result = new DriverBO().GetDriverBySearch( status);
+                var result = new DriverBO().GetDriverBySearch(status);
                 if (result != null)
                     return Ok(result);
                 else

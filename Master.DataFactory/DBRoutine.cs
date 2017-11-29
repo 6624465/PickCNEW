@@ -78,12 +78,14 @@ namespace Master.DataFactory
         /// </summary>
 
         public const string SELECTDRIVER = "[Master].[usp_DriverSelect]";
-        public const string LISTDRIVER = "[Master].[usp_DriverList]";
+        public const string LISTDRIVER = "[Master].[usp_DriverList]"; /*commented by shruthi */
+        public const string SELECTDRIVERLISTSTATUS = "[Operation].[usp_GetDriverListByLoginStatus]";
         public const string DRIVERDETAILLIST = "[Master].[usp_DriverDetailList]";
         public const string SAVEDRIVER = "[Master].[usp_DriverSave]";
         public const string DELETEDRIVER = "[Master].[usp_DriverDelete]";
         public const string DRIVERUPDATEDEVICEID = "[Master].[usp_UpdateDriverDeviceID]";
-        public const string GETDRIVERBYSTATUS = "[Master].[usp_GetDriverByStatus]";
+        public const string DRIVERLISTBYLOGINSTATUS = "[Operation].[usp_GetDriverListByLoginStatus]";
+        /*  public const string GETDRIVERBYSTATUS = "[Master].[usp_GetDriverByStatus]";*//* commented by shruthi*/
         public const string SAVEATTACHMENTS = "[Master].[usp_AttachmentsSave]";
         public const string SAVEMANUFACTURER = "[Master].[usp_SaveVehicleManufacturer]";      
         public const string DRIVERTODAYLISTOFTRIPS = "[Operation].[usp_DriverWiseTripList]";

@@ -28,13 +28,14 @@ function EditOperatorVehicle(index) {
     $('#operatorVehicle_VehicleRegistrationNo').val($('#' + baseID + 'VehicleRegistrationNo').val());
 
     $('#operatorVehicle_VehicleType option').filter(function () {
-        return this.text == $('#' + baseID + 'VehicleType').val();
+        return this.text == $('#' + baseID + 'VehicleTypeDescription').val();
     }).attr('selected', true);
 
     $('#operatorVehicle_VehicleCategory option').filter(function () {
-        return this.text == $('#' + baseID + 'VehicleCategory').val();
+        return this.text == $('#' + baseID + 'VehicleCategoryDescription').val();
+        
     }).attr('selected', true);
-
+    $('#operatorVehicle_Model').removeAttr("disabled");
     $('#operatorVehicle_Model option').filter(function () {
         return this.text == $('#' + baseID + 'Model').val();
     }).attr('selected', true);

@@ -24,7 +24,7 @@ namespace PickC.Internal2.ViewModals
 
     public class DriverMonitorVm
     {
-        public List<Driver> driverList { get; set; }
+        public List<DriverAttachmentListStatus> driverList { get; set; }
         public List<TripMonitorVm> tripMonitorVmList { get; set; }
     }
 }

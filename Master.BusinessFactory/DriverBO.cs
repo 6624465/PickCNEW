@@ -95,9 +95,9 @@ namespace Master.BusinessFactory
             return driverDAL.UpdateDriverDevice(driverID, deviceID);
         }
 
-        public List<Driver> GetDriverBySearch(bool? status)
+        public List<DriverAttachmentListStatus> GetDriverBySearch(string status)
         {
-            return (List<Driver>)driverDAL.GetDriverBySearch(status);
+            return (List<DriverAttachmentListStatus>)driverDAL.GetDriverBySearch(status);
         }
 
         public bool SaveAttachment(DriverAttachmentsDTO attachment)

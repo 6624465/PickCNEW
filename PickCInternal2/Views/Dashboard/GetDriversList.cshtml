@@ -29,22 +29,22 @@
                                 <div class="search-map">
                                     @*<input type="text" id="txtDriverName" placeholder="search by name" class="form-control" />*@
                                     <select id="ddlSearchByStatus" class="form-control">
-                                        <option value="3">All</option>
-                                        <option value="true">Log In</option>
-                                        <option value="false">Log Off</option>
+                                        <option value="ALL">All</option>
+                                        <option value="LOGIN">Log In</option>
+                                        <option value="LOGOFF">Log Off</option>
                                     </select>
                                 </div>
-                                <div class="dr-list" id="driverList">
+                                <div class="dr-list" id="driverList1">
 
                                     <ul class="listofvhl">
                                         @foreach (var item in Model.driverList)
                                         {
-                                            <li onclick="getDriverDetails(this)" id="@item.DriverID">
+                                            <li onclick="GetDriversList(this)" id="@item.DriverID">
                                                 <img src="~/images/icon.png" class="img-circle" alt="driver" height="20" style="float:left;" />
                                                 <div style="float:left;padding-left:10px;">
                                                     <span style="display:block"> @item.DriverName</span>
                                                     <span style="display:block"> @item.VehicleNo </span>
-                                                    <span style="display:block">@item.PhoneNo</span>
+                                                    <span style="display:block">@item.MobileNo</span>
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <span class="active-dr">
@@ -211,7 +211,7 @@
 
 
             $('#ddlSearchByStatus').on("change", function () {
-
+                debugger;
                 $.ajax({
                     url: '@Url.Content("~/Dashboard/GetDriverBySearch")',
                     method: 'POST',
@@ -219,8 +219,8 @@
                     dataType: 'json',
                     data: JSON.stringify({ 'status': $('#ddlSearchByStatus').val() }),
                     success: function (data) {
-
-                        $('#driverList').val();
+                        debugger;
+                        $('#driverList1').val();
                         var html = '';
                         $.each(data, function (key, val) {
                             html += '<ul class="listofvhl">'
@@ -237,12 +237,13 @@
                                 html += '<i class="fa fa-circle text-danger"></i>';
                             }
                             html += '</span></li></ul>';
+                            //html += '</li></ul>';
 
 
 
                         });
 
-                        $('#driverList').html(html);
+                        $('#driverList1').html(html);
 
 
                     },
@@ -288,9 +289,10 @@
         }
 
 
-        function getDriverDetails(obj) {
+        function GetDriversList(obj) {
+            debugger;
             $.ajax({
-                url: '@Url.Content("~/Internal/Dashboard/GetDriverDetails")',
+                url: '@Url.Content("~/Internal/Dashboard/GetDriversList")',
                 method: 'POST',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -312,6 +314,7 @@
                 }
             });
         }
+        var status = $('#ddlSearchByStatus').val();
         $(function () {
             $('#driverStatus').parent().addClass('active');
         });

@@ -2,7 +2,10 @@
 @using PickC.Internal2.HtmlHelpers
 @section seccss{
     <link href="@Url.Content("~/Css/bootstrap-datetimepicker.css")" rel="stylesheet" />
-    <link href="http://localhost:51896/Content/DataTables/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+
+@*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">*@
+
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
 }
 
 <section class="content">
@@ -78,13 +81,23 @@
                 }
     </section>
     @section secscripts{
-        <script src="http://localhost:51896/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+        @*<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>*@
+
+        
         <script src="@Url.Content("~/Scripts/moment-with-locales.js")"></script>
         <script src="@Url.Content("~/Scripts/bootstrap-datetimepicker.js")"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#tableId').dataTable();
+                $('#tableId').dataTable({
+                    "paging": true,
+                    "ordering": true,
+                    "searching": false
+
+                 
+                });
             });
             $('.dtCss').datetimepicker({
                 icons: {

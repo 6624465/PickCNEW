@@ -139,6 +139,7 @@
                                 <div class="form-group">
                                     <label>Phone No</label>
                                     @Html.TextBoxFor(x => x.driver.PhoneNo, new { @class = "form-control", placeholder = "Phone No" })
+                                    @Html.HiddenFor(x => x.driver.Password, new { @class = "form-control", placeholder = "Phone No" })
                                 </div>
                             </div>
                         </div>
@@ -196,12 +197,13 @@
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
-                                @if (Model.driver.AddressList.Count != 0)
-                                {
+                               
                                 <tbody id="trBody">
-                                    @for (var i = 0; i < Model.driver.AddressList.Count; i++)
+                                    @if (Model.driver.AddressList.Count != 0)
                                     {
-                                        <tr id="trRow_@i" class="trRowCss">
+                                        for (var i = 0; i < Model.driver.AddressList.Count; i++)
+                                        {
+                                         <tr id="trRow_@i" class="trRowCss">
                                             <td>
                                                 <span id="Address1_span_@i">@Model.driver.AddressList[i].Address1</span>
                                                 @Html.HiddenFor(x => Model.driver.AddressList[i].Address1)
@@ -224,8 +226,9 @@
                                             </td>
                                         </tr>
                                     }
-                                </tbody>
                                 }
+                                </tbody>
+                                
                             </table>
                         </div>
                     </div>

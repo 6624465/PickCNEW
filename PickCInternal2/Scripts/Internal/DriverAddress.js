@@ -116,13 +116,30 @@ function AddAddress(index) {
     $('#addressModal').modal('show');
 }
 
-function DeleteAddress(index) {
-    var id = '#driver_AddressList_' + index + '__IsActive';
-    $(id).val('False');
-    $('#trRow_' + index).css({
-        color: 'red',
-        'text-decoration': 'line-through',
-        'font-style': 'italic'
-    });
-}
+//function DeleteAddress(index) {
+//    var id = '#driver_AddressList_' + index + '__IsActive';
+//    $(id).val('False');
+//    $('#trRow_' + index).css({
+//        color: 'red',
+//        'text-decoration': 'line-through',
+//        'font-style': 'italic'
+//    });
+//}
 
+function DeleteAddress(index) {
+    //var id = '#OPerator_AddressList_' + index + '__IsActive';
+    //$(id).val('False');
+    //$('#trRow_' + index).css({
+    //    color: 'red',
+    //    'text-decoration': 'line-through',
+    //    'font-style': 'italic'
+    //});
+    $('#trRow_' + index).remove();
+    $('#Address1').val('');
+    $('#Address2').val('');
+    $('#Address3').val('');
+    $('#Address4').val('');
+    $('#StateName').val('');
+    $('#CityName').val('');
+    $('#ZipCode').val('');
+}

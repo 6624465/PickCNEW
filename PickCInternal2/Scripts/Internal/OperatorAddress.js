@@ -53,6 +53,7 @@ function EditAddress(index) {
 }
 
 function btnSaveAddress() {
+    debugger
     if (!$('#frmAddress').valid())
         return;
     if (gIndex != -1) {
@@ -138,3 +139,5 @@ function DeleteAddress(index) {
     $('#ZipCode').val('');
 }
 
+//Model.driver.AddressList[i].Address2
+//Model.OPerator.AddressList[i].Address2

@@ -26,20 +26,23 @@ function EditOperatorVehicle(index) {
     //OPerator_OperatorVehicle_0__VehicleRegistrationNo
     var baseID = 'OPerator_OperatorVehicleList_' + index + '__';
     $('#operatorVehicle_VehicleRegistrationNo').val($('#' + baseID + 'VehicleRegistrationNo').val());
+    $('#operatorVehicle_VehicleType').val($('#' + baseID + 'VehicleType').val());
+    $('#operatorVehicle_VehicleCategory').val($('#' + baseID + 'VehicleCategory').val());
+    //$('#operatorVehicle_VehicleType option').filter(function () {
+    //    return this.text == $('#' + baseID + 'VehicleType').val();
+    //}).attr('selected', true);
 
-    $('#operatorVehicle_VehicleType option').filter(function () {
-        return this.text == $('#' + baseID + 'VehicleTypeDescription').val();
-    }).attr('selected', true);
-
-    $('#operatorVehicle_VehicleCategory option').filter(function () {
-        return this.text == $('#' + baseID + 'VehicleCategoryDescription').val();
+    //$('#operatorVehicle_VehicleCategory option').filter(function () {
+    //    return this.text == $('#' + baseID + 'VehicleCategory').val();
         
-    }).attr('selected', true);
-    $('#operatorVehicle_Model').removeAttr("disabled");
-    $('#operatorVehicle_Model option').filter(function () {
-        return this.text == $('#' + baseID + 'Model').val();
-    }).attr('selected', true);
-  
+    //}).attr('selected', true);
+   // $('#operatorVehicle_Model').removeAttr("disabled");
+    
+    //$('#operatorVehicle_Model option').filter(function () {
+    //    return this.text == $('#' + baseID + 'Model').val();
+    //}).attr('selected', true);
+    onChangeVehicleCategoryForEdit($('#operatorVehicle_VehicleCategory')[0], $('#' + baseID + 'Model').val());
+    
     $('#operatorVehicle_Tonnage').val($('#' + baseID + 'Tonnage').val());
     $('#VehicleModal').modal('show');
 

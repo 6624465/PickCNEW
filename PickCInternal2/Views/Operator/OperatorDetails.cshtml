@@ -342,11 +342,11 @@
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_VehicleType_span_@i">@Model.OPerator.OperatorVehicleList[i].VehicleTypeDescription</span>
-                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleTypeDescription)
+                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleType)
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_VehicleCategory_span_@i">@Model.OPerator.OperatorVehicleList[i].VehicleCategoryDescription</span>
-                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleCategoryDescription)
+                                                                                            @Html.HiddenFor(x => Model.OPerator.OperatorVehicleList[i].VehicleCategory)
                                                                                         </td>
                                                                                         <td>
                                                                                             <span id="operatorVehicle_Model_span_@i">@Model.OPerator.OperatorVehicleList[i].Model</span>
@@ -901,8 +901,7 @@
                         $('#frmOperatorAdd').submit();
                     }
                 }
-                function onChangeVehicleCategory(selectedCategory) {
-                    debugger;
+                function onChangeVehicleCategory(selectedCategory) {                    
                     var category = selectedCategory.value;
                     $.ajax({
                         url: '@Url.Content("~/Operator/GetCategoryModel?categoryValue=")' + category,
@@ -923,6 +922,30 @@
                         }
                     });
                 }
+
+                function onChangeVehicleCategoryForEdit(selectedCategory, selectedValue) {
+                    var category = selectedCategory.value;
+                    $.ajax({
+                        url: '@Url.Content("~/Operator/GetCategoryModel?categoryValue=")' + category,
+                        method: 'get',
+                        contentType: 'application/json',
+                        success: function (data) {                            
+                            $('#operatorVehicle_Model').removeAttr("disabled");
+                            $("#operatorVehicle_Model").html(""); // clear before appending new list
+                            $("<option value='-1'>Select item</option>").appendTo("#operatorVehicle_Model");
+                            $.each(data, function (i, val) {
+                                $("#operatorVehicle_Model").append(
+                                    $('<option></option>').val(val.Text).html(val.Value));
+                            });
+
+                            $('#operatorVehicle_Model').val(selectedValue);
+                        },
+                        error: function (err) {
+
+                        }
+                    });
+                }
+
                 function ModelChanged(el) {
                     debugger;
                     var tonnage = el.value;
@@ -959,6 +982,41 @@
                     });
 
                 }
+                //$(function () {
+
+                //    if ($('#fadhar').val() != null) {
+                //        $(this).attr("<a  onclick="Remove()"  style="">
+                //                                                    <i class="fa fa-remove" style="color:red;"></i>
+                //                                                </a>")
+                //    }
+                //});
+                //function AddDriver(index) {
+                //    debugger
+                //    var baseID = 'OPerator_OperatorDriverList_' + index + '__';
+                //    //$('#operatorDriverList_DriverName option').filter(function () {
+                //    //    return this.text == $('#' + baseID + 'operatorDriverList_DriverName').val();
+                //    //}).attr('selected', true);
+
+                //    var vehicles = $('.vehicleNoCss');
+                //    var newVehicleArr = new Array();
+
+                //    if (vehicles.length > 0) {
+                //        debugger
+                //        $.each(vehicles, function (index, item) {
+                //            debugger
+                //            var vehicle = $('#OPerator_OperatorVehicleList_' + index + '__VehicleRegistrationNo').val();
+                //            newVehicleArr.push(vehicle);
+                //        });
+                //    }
+                //    $.each(newVehicleArr, function (key, value) {
+                //        $('#operatorDriverList_VehicleNo')
+                //             .append($('<option class="new">', { value: value })
+                //             .text(value));
+                //    });
+                //    gIndex = -1;
+                //    $('#operatorDriverList_DriverName, #operatorDriverList_DriverLicenseNo, #operatorDriverList_DriverMobileNo, #operatorDriverList_VehicleNo').val('');
+                //    $('#DriverModal').modal('show');
+                //}
             </script>
         }
 

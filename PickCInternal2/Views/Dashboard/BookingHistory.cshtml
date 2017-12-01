@@ -13,6 +13,7 @@
 }
 @section seccss{
     <link href="@Url.Content("~/Css/bootstrap-datetimepicker.css")" rel="stylesheet" />
+
 }
 <section class="content">
     @using (Html.BeginForm("BookingsHistory", "Dashboard", FormMethod.Post, new { id = "frmBookingHistory", name = "frmBookingHistory" }))
@@ -82,7 +83,7 @@
                                                 grid.Column("CustomerID", "Customer Mobile"),
                                                 grid.Column("VehicleNo", "Vehicle No"),
                                                 grid.Column("DriverName", " Driver Name"),
-                                                grid.Column("InvoiceAmount", "Invoice Amount")
+                                                grid.Column("InvoiceAmount", "Invoice Amount",format:@<text>@item.InvoiceAmount </text>, style: "text-align:right;")
                              //grid.Column("LocationTo", "Trip To")
                              //grid.Column("InvoiceAmount", "Invoice Amount")
                              ),
@@ -164,3 +165,6 @@
         }
     </script>
 }
+@*<style>
+    .right-align { text-align: right; }
+</style>*@

@@ -30,7 +30,10 @@ function EditOperatorDriver(index) {
     var newVehicleArr = new Array();
 
     if (vehicles.length > 0) {
+        debugger
         $.each(vehicles, function (index, item) {
+            debugger
+            //OPerator.OperatorVehicleList[0].VehicleRegistrationNo
             //OPerator_OperatorVehicle_-1__VehicleRegistrationNo 
             var vehicle = $('#OPerator_OperatorVehicleList_' + index + '__VehicleRegistrationNo').val();
             newVehicleArr.push(vehicle);
@@ -127,8 +130,30 @@ function btnSavedriver() {
     $('#DriverModal').modal('hide');
     gIndex = -1;
 }
-function AddDriver(index) {
-    gIndex = -1;
-    $('#operatorDriverList_DriverName, #operatorDriverList_DriverLicenseNo, #operatorDriverList_DriverMobileNo, #operatorDriverList_VehicleNo').val('');
-    $('#DriverModal').modal('show');
-}
+//function AddDriver(index) {
+//    debugger
+//    var baseID = 'OPerator_OperatorDriverList_' + index + '__';
+//    //$('#operatorDriverList_DriverName option').filter(function () {
+//    //    return this.text == $('#' + baseID + 'operatorDriverList_DriverName').val();
+//    //}).attr('selected', true);
+
+//    var vehicles = $('.vehicleNoCss');
+//    var newVehicleArr = new Array();
+
+//    if (vehicles.length > 0) {
+//        debugger
+//        $.each(vehicles, function (index, item) {
+//            debugger
+//            var vehicle = $('#OPerator_OperatorVehicleList_' + index + '__VehicleRegistrationNo').val();
+//            newVehicleArr.push(vehicle);
+//        });
+//    }
+//    $.each(newVehicleArr, function (key, value) {
+//        $('#operatorDriverList_VehicleNo')
+//             .append($('<option class="new">', { value: value })
+//             .text(value));
+//    });
+//    gIndex = -1;
+//    $('#operatorDriverList_DriverName, #operatorDriverList_DriverLicenseNo, #operatorDriverList_DriverMobileNo, #operatorDriverList_VehicleNo').val('');
+//    $('#DriverModal').modal('show');
+//}

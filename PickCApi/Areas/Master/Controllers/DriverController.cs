@@ -157,12 +157,13 @@ namespace PickCApi.Areas.Master.Controllers
                 var genderOptions = lookupList.Where(x => x.LookupCategory == "Gender").ToList();
                 var maritalOptions = lookupList.Where(x => x.LookupCategory == "MaritalStatus").ToList();
                 var attachments = lookupList.Where(x => x.LookupCategory == "DriverAttachments").ToList();
-
+                var OperatorList= new OperatorBO().GetOperatorList();
                 return Ok(new
                 {
                     genderOptions = genderOptions,
                     maritalOptions = maritalOptions,
-                    attachments = attachments
+                    attachments = attachments,
+                    OperatorList= OperatorList
                 });
             }
             catch (Exception ex)
@@ -222,6 +223,24 @@ namespace PickCApi.Areas.Master.Controllers
                 return InternalServerError(ex);
             }
         }
+        [HttpGet]
+        [Route("OperatorList")]
+        public IHttpActionResult OperatorList()
+        {
+            try
+            {
+                var result = new OperatorBO().GetOperatorList();
+                if (result != null)
+                    return Ok(result);
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+        
 
     }
 }

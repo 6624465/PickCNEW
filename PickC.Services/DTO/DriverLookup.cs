@@ -13,5 +13,6 @@ namespace PickC.Services.DTO
         public List<LookUp> maritalOptions { get; set; }
 
         public List<LookUp> attachments { get; set; }
+        public List<Operator> OperatorList { get; set; }
     }
 }

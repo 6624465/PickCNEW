@@ -79,11 +79,14 @@
                                     columns: grid.Columns(
                                         @*grid.Column(format: @<text>@Html.ActionLink((string)item.BookingNo,"ActionName","Controllername", new { id = item.id }, null)</text>","Booking No"),*@
                                                 grid.Column("BookingNo", "Booking No"),
+                                                grid.Column("BookingDate", "Booking Date"), 
                                                 grid.Column("CustomerName", "Customer Name"),
                                                 grid.Column("CustomerID", "Customer Mobile"),
                                                 grid.Column("VehicleNo", "Vehicle No"),
+                                                grid.Column("VehicleTypeDescription", "VehicleType Description"),
                                                 grid.Column("DriverName", " Driver Name"),
-                                                grid.Column("InvoiceAmount", "Invoice Amount",format:@<text>@item.InvoiceAmount </text>, style: "text-align:right;")
+                                                grid.Column("InvoiceNo", " Invoice No"),
+                                                grid.Column("InvoiceAmount", "Invoice Amount",format:@<text>@item.InvoiceAmount </text>, style: "rightAlign")
                              //grid.Column("LocationTo", "Trip To")
                              //grid.Column("InvoiceAmount", "Invoice Amount")
                              ),
@@ -121,7 +124,9 @@
             //$('.dtCss').datetimepicker({
             //    format: 'mm/dd/yy'
             //});
-
+            debugger
+            
+            //$('#datefrom').val(fst_day);
 
             $('.dtCss').datetimepicker({
                 icons: {
@@ -133,6 +138,7 @@
                     next: 'fa fa-arrow-right'
                 },
                 format: 'DD/MM/YYYY'
+               
             });
 
             //$('#Datefrom,#DateTo').datetimepicker({
@@ -146,6 +152,8 @@
             //});
             //$('#DateTo,#Datefrom').datepicker();
             //$('#Datefrom').datepicker();
+            var date = new Date();
+            var fst_day = new Date(date.getFullYear(), date.getMonth(), 1);
             $('#frmBookingHistory').validate({
                 rules: {
                 'bookings.DateTo': {
@@ -165,6 +173,6 @@
         }
     </script>
 }
-@*<style>
-    .right-align { text-align: right; }
-</style>*@
+<style>
+        .rightAlign { direction:rtl;}
+    </style>

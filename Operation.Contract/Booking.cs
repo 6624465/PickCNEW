@@ -37,6 +37,7 @@ namespace Operation.Contract
 
 
         public Int16 VehicleType { get; set; }
+        public string VehicleTypeDescription { get; set; }
 
         public Int16 VehicleGroup { get; set; }
 
@@ -90,6 +91,7 @@ namespace Operation.Contract
         public string OTP { get; set; }
         public string DriverName { get; set; }
         public decimal InvoiceAmount { get; set; }
+        public string InvoiceNo { get; set; }
     }
 }
 

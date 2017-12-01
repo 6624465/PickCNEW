@@ -49,7 +49,8 @@ namespace Operation.DataFactory
         public const string LISTOFBOOKINGBYBOOKINGNO = "[Operation].[usp_BookingListByBookingNo]";
         public const string LISTNEARBOOKINGSFORDRIVER = "[Operation].[usp_NearBookingsForDriver]";
         public const string LISTOFBOOKINGBYSTATUS = "[Master].[usp_GetCustomerByStatus]";
-        public const string LISTOFCURRENTBOOKING = "[Operation].[usp_BookingList]";
+        public const string LISTOFCURRENTBOOKING = "[Operation].[usp_BookingList]";/*mobile*/
+        public const string LISTOFCURRENTBOOKINGINTERNAL= "[Operation].[usp_BookingListInternal]";/* for internal*/
 
         public const string SAVEPICKUPREACHDATETIME = "[Operation].[usp_SavePickupReachDateTime]";
         public const string SAVEDESTINATIONREACHDATETIME = "[Operation].[usp_SaveDestinationReachDateTime]";

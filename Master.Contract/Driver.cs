@@ -89,6 +89,7 @@ namespace Master.Contract
 
         public string Nationality { get; set; }
         public string OperatorID { get; set; }
+
         public List<BankDetails> BankDetails { get; set; }
     }
     public class DriverAttachmentListStatus

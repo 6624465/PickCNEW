@@ -31,7 +31,7 @@ namespace Master.DataFactory
         }
         public List<Operator> GetList()
         {
-            return db.ExecuteSprocAccessor(DBRoutine.LISTOPERATOR, MapBuilder<Operator>.BuildAllProperties()).ToList();
+            return db.ExecuteSprocAccessor(DBRoutine.LISTDRIVER, MapBuilder<Operator>.BuildAllProperties()).ToList();
         }
         public bool Save<T>(T item, DbTransaction parentTransaction) where T : IContract
         {
@@ -261,6 +261,7 @@ namespace Master.DataFactory
 
             return operatorItem;
         }
+
         public bool Delete<T>(T item) where T : IContract
         {
             var result = false;
@@ -361,6 +362,11 @@ namespace Master.DataFactory
             return db.ExecuteSprocAccessor(DBRoutine.LISTOPERATORWISEDRIVERVEHICLEATTACHEDTODAYLIST, MapBuilder<OperatorWiseDriverVehicleAttachedTodayList>.BuildAllProperties(), MobileNo).ToList();
         }
         #region IDataFactory Members
+        public List<Operator> GetOperatorList()
+        {
+            return db.ExecuteSprocAccessor(DBRoutine.LISTOPERATOR, MapBuilder<Operator>.BuildAllProperties()).ToList();
+        }
+        
     }
     #endregion
 }

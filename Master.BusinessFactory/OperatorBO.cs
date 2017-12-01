@@ -14,6 +14,11 @@ namespace Master.BusinessFactory
         {
             operatorDAL = new OperatorDAL();
         }
+        public List<Operator> GetOperatorList()
+        {
+            return operatorDAL.GetOperatorList();
+        }
+        
         public List<Operator> GetList()
         {
             return operatorDAL.GetList();

@@ -30,7 +30,19 @@ namespace PickC.Services
                 return ServiceResponse<List<Operator>>(client.Execute<List<Operator>>(request));
             });
         }
+        public async Task<List<Operator>> GetOperatorList()
+        {
+            IRestClient client = new RestClient(ApiBaseUrl);
+            var request = p_request;
+            request.Method = Method.GET;
+            request.Resource = "master/driver/Operatorlist";
 
+            return await Task.Run(() =>
+            {
+                return ServiceResponse<List<Operator>>(client.Execute<List<Operator>>(request));
+            });
+        }
+        
         public async Task<OperatorLookupDTO> LookUpDataAsync()
         {
             IRestClient client = new RestClient(ApiBaseUrl);
@@ -69,7 +81,7 @@ namespace PickC.Services
                 return ServiceResponse(client.Execute(request));
             });
         }
-
+      
         public async Task<string> SaveOperatorAsync(Operator OPerator)
         {
             IRestClient client = new RestClient(ApiBaseUrl);

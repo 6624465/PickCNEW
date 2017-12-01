@@ -57,25 +57,31 @@
         <thead>
             <tr>
                 <th>Booking No</th>
+                <th>Booking Date</th>
                 <th>Customer Name</th>
                 <th>Customer Mobile</th>
                 <th>Vehicle No</th>
+                <th>VehicleType Description</th>
                 <th>Driver Name</th>
+                <th>Invoice No</th>
                 <th>Invoice Amount</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.booking)
-            {
+                {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.BookingNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
                     <td>@Html.DisplayFor(modelItem => item.CustomerName)</td>
                     <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
                     <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.VehicleTypeDescription)</td>
                     <td>@Html.DisplayFor(modelItem => item.DriverName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.InvoiceAmount)</td>
+                    <td>@Html.DisplayFor(modelItem => item.InvoiceNo)</td>
+                    <td style="direction:rtl;">@Html.DisplayFor(modelItem => item.InvoiceAmount)</td>
                 </tr>
-            }
+                    }
         </tbody>
     </table>
                 }
@@ -95,8 +101,6 @@
                     "paging": true,
                     "ordering": true,
                     "searching": false
-
-                 
                 });
             });
             $('.dtCss').datetimepicker({

@@ -46,7 +46,7 @@ namespace Operation.DataFactory
         }
         public List<Booking> GetList()
         {
-            return db.ExecuteSprocAccessor(DBRoutine.LISTOFCURRENTBOOKING, MapBuilder<Booking>.BuildAllProperties()).ToList();
+            return db.ExecuteSprocAccessor(DBRoutine.LISTOFCURRENTBOOKINGINTERNAL, MapBuilder<Booking>.BuildAllProperties()).ToList();
         }
         public List<Booking> SearchBookingsHistory(DateTime? bookingFrom, DateTime? bookingTo)
         {
